@@ -2,11 +2,7 @@
 
 import Image from 'next/image'
 import { BsSearch } from 'react-icons/bs';
-// import cloud from '../assets/cloud.png'
 
-import styles from '../styles/VideoBcg.module.css'
-
-// const video = '/earthMain.mp4'
 const video = '/rain1.mp4'
 
 
@@ -17,7 +13,7 @@ const HomeSection = () => {
 
   return (
 
-    <section>
+    <section className='main'>
       <div className='overlay' />
       <video
         autoPlay
@@ -30,8 +26,7 @@ const HomeSection = () => {
       </video>
 
       <div className='content'>
-
-        <div className='relative flex justify-between items-center max-w-[500px]  mt-[100px] pt-4 px-4 text-white z-10'>
+        <div className='relative flex justify-between items-center max-w-[700px]  mt-[100px] text-white z-10'>
           <form
             // onSubmit={fetchWeather}
             className='flex justify-between items-center w-full m-auto p-3 bg-transparent border border-gray-300 text-white rounded-2xl'
