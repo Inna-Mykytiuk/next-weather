@@ -1,6 +1,5 @@
-import type { Config } from "tailwindcss";
-
-const config: Config = {
+/** @type {import('tailwindcss').Config} */
+module.exports = {
   content: [
     "./pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
@@ -8,10 +7,49 @@ const config: Config = {
   ],
   theme: {
     extend: {
-      backgroundImage: {
-        "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
-        "gradient-conic":
-          "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
+      container: {
+        center: true,
+        padding: "2rem",
+      },
+      width: {
+        150: "150px",
+        170: "170px",
+        190: "190px",
+        225: "225px",
+        240: "240px",
+        260: "260px",
+        275: "275px",
+        300: "300px",
+        340: "340px",
+        350: "350px",
+        375: "375px",
+        460: "460px",
+        510: "510px",
+        656: "656px",
+        880: "880px",
+        508: "508px",
+      },
+      height: {
+        80: "80px",
+        150: "150px",
+        225: "225px",
+        250: "250px",
+        300: "300px",
+        340: "340px",
+        370: "370px",
+        420: "420px",
+        510: "510px",
+        600: "600px",
+        650: "650px",
+        685: "685px",
+        800: "800px",
+        900: "900px",
+        "90vh": "90vh",
+      },
+      minWidth: {
+        210: "210px",
+        350: "350px",
+        620: "620px",
       },
       screens: {
         xs: "350px",
@@ -43,13 +81,15 @@ const config: Config = {
 
         rose800: "5c0003",
       },
+      backgroundImage: () => ({
+        homeBg: "url('./assets/forest/forest7.jpg')",
+      }),
       fontFamily: {
         popins: ["Poppins", "sans-serif"],
         dancing: ["Dancing Script", "cursive"],
       },
     },
   },
-  plugins: [],
+  plugins: ["tailwind-scrollbar"],
   scrollbar: ["rounded"],
 };
-export default config;
