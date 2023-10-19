@@ -3,7 +3,7 @@
 import Image from 'next/image'
 import { Form } from './Form'
 
-const video = '/rain1.mp4'
+const video = '/hero.mp4'
 
 
 const HomeSection = () => {
