@@ -1,15 +1,16 @@
 "use client"
 
 import Image from 'next/image'
-import { BsSearch } from 'react-icons/bs';
+import { Form } from './Form'
 
 const video = '/rain1.mp4'
 
 
 const HomeSection = () => {
-  const container = "mx-auto min-h-full w-5/6 py-20"
-  const flexBetween = "flex items-center justify-between";
-  const bcgImg = 'https://images.unsplash.com/photo-1580193483760-d0ef2abaa348?auto=format&fit=crop&q=80&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&w=1974'
+  // const container = "mx-auto min-h-full w-5/6 py-20"
+  // const flexBetween = "flex items-center justify-between";
+  // const bcgImg = 'https://images.unsplash.com/photo-1580193483760-d0ef2abaa348?auto=format&fit=crop&q=80&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&w=1974'
+  const logo = '/assets/logo2.png'
 
   return (
 
@@ -26,26 +27,14 @@ const HomeSection = () => {
       </video>
 
       <div className='content'>
-        <div className='relative flex justify-between items-center max-w-[700px]  mt-[100px] text-white z-10'>
-          <form
-            // onSubmit={fetchWeather}
-            className='flex justify-between items-center w-full m-auto p-3 bg-transparent border border-gray-300 text-white rounded-2xl'
-          >
-            <div>
-              <input
-                // onChange={(e) => setCity(e.target.value)}
-                className='bg-transparent border-none text-white focus:outline-none text-2xl'
-                type='text'
-                placeholder='Search city'
-              />
-            </div>
-            <button
-            // onClick={fetchWeather}
-            >
-              <BsSearch size={20} />
-            </button>
-          </form>
-        </div>
+        <Form />
+        <Image
+          className='object-cover w-10 h-10'
+          src={logo}
+          width={80}
+          height={80}
+
+          alt='weather' />
       </div>
     </section>
   )
