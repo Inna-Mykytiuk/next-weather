@@ -1,24 +1,39 @@
-import { BsSearch } from 'react-icons/bs';
+"use client"
+// import { BsSearch } from 'react-icons/bs';
+import Image from 'next/image'
 
-const Form = () => {
+interface FormProps {
+  handleSearch: (event: React.KeyboardEvent<HTMLInputElement>) => void;
+  setLocation: React.Dispatch<React.SetStateAction<string>>;
+}
+
+const Form = ({ handleSearch, setLocation }: FormProps) => {
+  const logo = '/assets/logo2.png'
+
   return (
     <div className='relative flex justify-between items-center max-w-[700px] text-white z-10'>
       <form
         // onSubmit={fetchWeather}
-        className='flex justify-between items-center w-full m-auto p-3 bg-transparent border border-gray-300 text-white rounded-2xl'
+        className='flex justify-between items-center w-full m-auto px-4 bg-transparent border border-gray-300 text-white rounded-2xl'
       >
         <div>
           <input
-            // onChange={(e) => setCity(e.target.value)}
-            className='bg-transparent border-none text-white focus:outline-none text-2xl'
+            onChange={(e) => setLocation(e.target.value)}
+            className='bg-transparent border-none text-white focus:outline-none text-2xl placeholder-white outline-none'
             type='text'
             placeholder='Search city'
+            onKeyDown={handleSearch}
           />
         </div>
         <button
         // onClick={fetchWeather}
         >
-          <BsSearch size={20} />
+          <Image
+            className='object-cover w-10 h-10'
+            src={logo}
+            width={60}
+            height={60}
+            alt='weather' />
         </button>
       </form>
     </div>

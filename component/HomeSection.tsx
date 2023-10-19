@@ -1,5 +1,6 @@
 "use client"
 
+import { useState } from 'react'
 import Image from 'next/image'
 import { Form } from './Form'
 
@@ -7,10 +8,34 @@ const video = '/hero.mp4'
 
 
 const HomeSection = () => {
-  // const container = "mx-auto min-h-full w-5/6 py-20"
-  // const flexBetween = "flex items-center justify-between";
-  // const bcgImg = 'https://images.unsplash.com/photo-1580193483760-d0ef2abaa348?auto=format&fit=crop&q=80&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&w=1974'
-  const logo = '/assets/logo2.png'
+  const [data, setData] = useState({});
+
+  const [location, setLocation] = useState("");
+  const [error, setError] = useState("");
+
+  const API_KEY = process.env.WEATHER_API_KEY;
+
+  const url = `http://api.weatherapi.com/v1/forecast.json?key=${API_KEY}&q=${location}&days=7&aqi=yes&alerts=yes`;
+
+  const handleSearch = async (e: React.KeyboardEvent<HTMLInputElement>) => {
+    if (e.key === "Enter") {
+      e.preventDefault();
+      try {
+        const response = await fetch(url)
+        if (!response.ok) {
+          throw new Error()
+        }
+        const data = await response.json()
+        setData(data);
+        setLocation("");
+        setError("")
+      } catch (error) {
+        setError("City not found")
+        setData({})
+      }
+    }
+  }
+
 
   return (
 
@@ -26,16 +51,20 @@ const HomeSection = () => {
         <source src={video} type="video/mp4" />
       </video>
 
-      <div className='content'>
-        <Form />
-        <Image
-          className='object-cover w-10 h-10'
-          src={logo}
-          width={80}
-          height={80}
+      <div className='contentFirst'>
+        <Form handleSearch={handleSearch} setLocation={setLocation} />
 
-          alt='weather' />
+
       </div>
+      <div className='contentSecond'>
+        {data.current ? (
+          <div>{data.current.temp_f}</div>
+        ) : null}
+
+      </div>
+
+
+
     </section>
   )
 }
@@ -66,7 +95,9 @@ export { HomeSection };
 </div> */}
 
 
-
+// const container = "mx-auto min-h-full w-5/6 py-20"
+// const flexBetween = "flex items-center justify-between";
+// const bcgImg = 'https://images.unsplash.com/photo-1580193483760-d0ef2abaa348?auto=format&fit=crop&q=80&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&w=1974'
 
 // import HeroBg from '../img/44.jpg';
 
