@@ -1,0 +1,21 @@
+.main {
+  width: 100%;
+  height: 100vh;
+}
+
+.contentFirst {
+  @apply absolute top-0 left-0 w-full h-[30%] flex flex-col justify-center items-center text-white;
+  /* height: 30%; */
+}
+.contentSecond {
+  @apply absolute top-0 left-0 w-full h-full flex flex-col justify-center items-center text-white;
+}
+.title {
+  /* @apply text-[80px] max-w-[600px] font-dancing; */
+  @apply text-[80px] max-w-[600px] ;
+}
+
+.overlay {
+  @apply absolute top-0 left-0 w-full h-full;
+  background-color: rgba(0, 0, 0, 0.4);
+}

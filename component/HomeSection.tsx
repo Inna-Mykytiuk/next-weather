@@ -6,6 +6,7 @@ import { Form } from './Form'
 import { CurrentData } from './CurrentData'
 import { WeatherDetails } from './WeatherDetails'
 import { WeekForecast } from './WeekForecast'
+import styles from '../styles/MainStyles.module.css'
 
 
 
@@ -46,7 +47,7 @@ const HomeSection = () => {
   if (Object.keys(data).length === 0 && error === "") {
     content = (
       <div className="text-white text-center h-screen mt-[5rem] ">
-        <h2 className="text-[80px] max-w-[600px] font-dancing">Welcome to the Weather App</h2>
+        <h2 className={`${styles.title} font-dancing`}>Welcome to the Weather App</h2>
       </div>
     );
   } else if (error !== "") {
