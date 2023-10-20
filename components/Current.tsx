@@ -37,7 +37,12 @@ const CurrentData = ({ data }: CurrentProps) => {
         </div>
         {weatherIcon && (
           <div>
-            <img className="w-[50px] object-cover" src={weatherIcon} alt="Weather Icon" />
+            <Image
+              width={50}
+              height={50}
+              className="w-[50px] object-cover"
+              src={weatherIcon}
+              alt="Weather Icon" />
           </div>
         )}
       </div>

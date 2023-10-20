@@ -28,7 +28,6 @@ export default function RootLayout({
           muted
           preload="auto"
           poster={hero}
-        // className='absolute bg-black/60'
         >
           <source src={video} type="video/mp4" />
           <source src={videoWeb} type="videoWeb/webm" />
