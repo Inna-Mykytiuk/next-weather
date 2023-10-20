@@ -1,4 +1,5 @@
 import React from 'react'
+import Image from 'next/image';
 
 interface DayForecast {
   date: string;
@@ -25,9 +26,6 @@ const WeekForecast = ({ data }: WeekForecastProps) => {
     return null;
   }
 
-  const numberOfDays = data.forecast.forecastday.length;
-  console.log(numberOfDays)
-
   return (
     <div className="grid grid-cols-4 md:mb-0 gap-8 w-full">
       {data.forecast.forecastday.map((day, index) => (
@@ -43,11 +41,14 @@ const WeekForecast = ({ data }: WeekForecastProps) => {
           aria-label={`Forecast for ${new Date(day.date).toLocaleString("en-US", { weekday: "short" })}`}
         >
           <p className="italic text-2xl">{new Date(day.date).toLocaleString("en-US", { weekday: "short" })}</p>
-          <img
+          <Image
+            width={50}
+            height={50}
             className="w-50 h-50"
             src={day.day.condition.icon}
             alt={day.day.condition.text}
             aria-label={day.day.condition.text}
+            unoptimized
           />
           <div>
             <p className="bg-black/25 px-2 italic rounded-xl text-white mb-2">

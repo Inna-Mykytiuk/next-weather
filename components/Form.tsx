@@ -1,5 +1,5 @@
 "use client"
-// import { BsSearch } from 'react-icons/bs';
+
 import Image from 'next/image'
 
 interface FormProps {
@@ -43,15 +43,3 @@ const Form = ({ handleSearch, setLocation, handleClick }: FormProps) => {
 }
 
 export { Form }
-
-{/* <button
-// onClick={fetchWeather}
-// onClick={fetchWeather}
->
-  <Image
-    className='object-cover'
-    src={logo}
-    width={60}
-    height={60}
-    alt='weather' />
-</button> */}
