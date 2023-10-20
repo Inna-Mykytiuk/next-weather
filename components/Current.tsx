@@ -23,7 +23,13 @@ const CurrentData = ({ data }: CurrentProps) => {
   const currentDate = getCurrentDate();
   return (
     <div className="flex flex-col gap-2 p-6 rounded-xl"
-      style={{ backgroundColor: 'rgb(147, 159, 77, 0.5)' }}>
+      style={{
+        backdropFilter: 'blur(10px)',
+        backgroundColor: 'rgba(90, 72, 72, 0.3)',
+        boxShadow: 'rgba(0, 0, 0, 0.5) 0px 5px 15px',
+      }}
+    // style={{ backgroundColor: 'rgb(147, 159, 77, 0.5)' }}
+    >
       <div className="flex items-center justify-between w-full">
         <div className="flex flex-col justify-start items-center text-start">
           <h1 className="text-3xl text-white">Today</h1>
@@ -46,9 +52,9 @@ const CurrentData = ({ data }: CurrentProps) => {
       </div>
       <div className='text-center'>
         {data.location ? (
-          <div className="flex items-center justify-center text-black bg-white/90 px-2 py-2 rounded-xl">
+          <div className="flex items-center justify-center text-black bg-white/10 px-2 py-2 rounded-xl">
 
-            <div className='flex flex-col items-center justify-center'>
+            <div className='flex flex-col items-center justify-center text-orange-100'>
               <IoLocationSharp className="w-[30px] h-[30px]" />
               <p>{data.location.name},</p>
               <p>{data.location.region}</p>

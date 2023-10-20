@@ -27,65 +27,101 @@ const WeatherDetails = ({ data }: WeatherDetailsProps) => {
 
   return (
     <div className=" mt-8 mb-10 md:mt-12 ">
-      <h1 className="mb-4 text-2xl sm:text-[30px] text-white italic font-bold font-dancing">Weather Details</h1>
+      <h1 className="mb-4 text-2xl sm:text-[30px] text-white italic font-bold font-josefin">Weather Details</h1>
 
       <div className="grid grid-cols-2 sm:grid-cols-6  gap-4 text-center italic font-bold">
-        <div className="bg-white/50 flex p-2 md:p-4 items-center justify-center gap-6 rounded-xl">
-          <div className="flex flex-col gap-2">
+        <div className="bg-white/50 flex p-2 md:p-4 items-center justify-center gap-6 rounded-xl"
+          style={{
+            backdropFilter: 'blur(10px)',
+            backgroundColor: 'rgba(90, 72, 72, 0.3)',
+            boxShadow: 'rgba(0, 0, 0, 0.5) 0px 5px 15px',
+          }}
+        >
+          <div className="flex flex-col gap-2 text-orange-100">
             <h3 className="text-lg sm:text-xl">Wind Speed</h3>
             <p
-              className="text-white text-md bg-black/25 rounded-xl italic mb-2"
+              className=" text-md bg-black/25 rounded-xl italic mb-2"
               aria-label={`Wind Speed: ${data.current.wind_mph} mph`}
             >
               {data.current.wind_mph} mph
             </p>
           </div>
         </div>
-        <div className="bg-white/50 flex p-2 md:p-4 items-center justify-center gap-6 rounded-xl">
-          <div className="flex flex-col gap-2">
+        <div className="bg-white/50 flex p-2 md:p-4 items-center justify-center gap-6 rounded-xl"
+          style={{
+            backdropFilter: 'blur(10px)',
+            backgroundColor: 'rgba(90, 72, 72, 0.3)',
+            boxShadow: 'rgba(0, 0, 0, 0.5) 0px 5px 15px',
+          }}
+        >
+          <div className="flex flex-col gap-2 text-orange-100">
             <h3 className="text-lg sm:text-xl">Humidity</h3>
-            <p className="text-white text-md bg-black/25 rounded-xl" aria-label={`Humidity: ${data.current.humidity}%`}>
+            <p className=" text-md bg-black/25 rounded-xl" aria-label={`Humidity: ${data.current.humidity}%`}>
               {data.current.humidity}%
             </p>
           </div>
         </div>
-        <div className="bg-white/50 flex p-2 md:p-4 items-center justify-center gap-6 rounded-xl">
-          <div className="flex flex-col gap-2">
+        <div className="bg-white/50 flex p-2 md:p-4 items-center justify-center gap-6 rounded-xl"
+          style={{
+            backdropFilter: 'blur(10px)',
+            backgroundColor: 'rgba(90, 72, 72, 0.3)',
+            boxShadow: 'rgba(0, 0, 0, 0.5) 0px 5px 15px',
+          }}
+        >
+          <div className="flex flex-col gap-2 text-orange-100">
             <h3 className="text-lg sm:text-xl">Wind Direction</h3>
             <p
-              className="text-white text-md bg-black/25 rounded-xl"
+              className=" text-md bg-black/25 rounded-xl"
               aria-label={`Wind Direction: ${data.current.wind_dir}`}
             >
               {data.current.wind_dir}
             </p>
           </div>
         </div>
-        <div className="bg-white/50 flex p-2 md:p-4 items-center justify-center gap-6 rounded-xl">
-          <div className="flex flex-col gap-2">
+        <div className="bg-white/50 flex p-2 md:p-4 items-center justify-center gap-6 rounded-xl"
+          style={{
+            backdropFilter: 'blur(10px)',
+            backgroundColor: 'rgba(90, 72, 72, 0.3)',
+            boxShadow: 'rgba(0, 0, 0, 0.5) 0px 5px 15px',
+          }}
+        >
+          <div className="flex flex-col gap-2 text-orange-100">
             <h3 className="text-lg sm:text-xl">Sunrise</h3>
             <p
-              className="text-white text-md bg-black/25 rounded-xl px-2"
+              className="text-md bg-black/25 rounded-xl px-2"
               aria-label={`Sunrise: ${data.forecast?.forecastday[0]?.astro.sunrise}`}
             >
               {data.forecast?.forecastday[0]?.astro.sunrise}
             </p>
           </div>
         </div>
-        <div className="bg-white/50 flex p-2 md:p-4 items-center justify-center gap-6 rounded-xl">
-          <div className="flex flex-col gap-2">
+        <div className="bg-white/50 flex p-2 md:p-4 items-center justify-center gap-6 rounded-xl"
+          style={{
+            backdropFilter: 'blur(10px)',
+            backgroundColor: 'rgba(90, 72, 72, 0.3)',
+            boxShadow: 'rgba(0, 0, 0, 0.5) 0px 5px 15px',
+          }}
+        >
+          <div className="flex flex-col gap-2 text-orange-100">
             <h3 className="text-lg sm:text-xl">Sunset</h3>
             <p
-              className="text-white text-md bg-black/25 rounded-xl px-2"
+              className="text-md bg-black/25 rounded-xl px-2"
               aria-label={`Sunset: ${data.forecast?.forecastday[0]?.astro.sunset}`}
             >
               {data.forecast?.forecastday[0]?.astro.sunset}
             </p>
           </div>
         </div>
-        <div className="bg-white/50 flex p-2 md:p-4 items-center justify-center gap-6 rounded-xl">
-          <div className="flex flex-col gap-2">
+        <div className="bg-white/50 flex p-2 md:p-4 items-center justify-center gap-6 rounded-xl"
+          style={{
+            backdropFilter: 'blur(10px)',
+            backgroundColor: 'rgba(90, 72, 72, 0.3)',
+            boxShadow: 'rgba(0, 0, 0, 0.5) 0px 5px 15px',
+          }}
+        >
+          <div className="flex flex-col gap-2 text-orange-100">
             <h3 className="text-lg sm:text-xl">Visibility</h3>
-            <p className="text-white text-md bg-black/25 rounded-xl" aria-label={`Visibility: ${data.current.vis_km} km`}>
+            <p className="text-md bg-black/25 rounded-xl" aria-label={`Visibility: ${data.current.vis_km} km`}>
               {data.current.vis_km} km
             </p>
           </div>

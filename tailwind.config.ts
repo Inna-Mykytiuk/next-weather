@@ -20,6 +20,7 @@ const config: Config = {
       fontFamily: {
         popins: ["Poppins", "sans-serif"],
         dancing: ["Dancing Script", "cursive"],
+        josefin: ["Josefin Sans", "sans-serif"],
       },
       content: {
         homeBg: "url('./assets/forest/forest7.jpg')",

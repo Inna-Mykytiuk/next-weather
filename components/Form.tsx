@@ -19,7 +19,7 @@ const Form = ({ handleSearch, setLocation, handleClick }: FormProps) => {
       <div>
         <input
           onChange={(e) => setLocation(e.target.value)}
-          className='bg-transparent border-none text-white focus:outline-none text-lg sm:text-2xl placeholder-white outline-none'
+          className='bg-transparent border-none text-white focus:outline-none text-lg sm:text-2xl placeholder-gray-200 outline-none'
           type='text'
           placeholder='Search city'
           onKeyDown={handleSearch}

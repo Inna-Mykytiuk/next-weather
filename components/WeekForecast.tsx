@@ -25,12 +25,20 @@ const WeekForecast = ({ data }: WeekForecastProps) => {
     return null;
   }
 
+  const numberOfDays = data.forecast.forecastday.length;
+  console.log(numberOfDays)
+
   return (
-    <div className="grid grid-cols-3 md:mb-0 gap-8 w-full">
+    <div className="grid grid-cols-4 md:mb-0 gap-8 w-full">
       {data.forecast.forecastday.map((day, index) => (
         <div
           key={index}
           className="bg-white/40 p-2 text-center rounded-lg flex flex-col items-center font-semibold gap-4"
+          style={{
+            backdropFilter: 'blur(10px)',
+            backgroundColor: 'rgba(165, 185, 123, 0.4)',
+            boxShadow: 'rgba(0, 0, 0, 0.5) 0px 5px 15px',
+          }}
           role="group"
           aria-label={`Forecast for ${new Date(day.date).toLocaleString("en-US", { weekday: "short" })}`}
         >
