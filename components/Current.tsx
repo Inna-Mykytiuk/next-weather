@@ -42,7 +42,9 @@ const CurrentData = ({ data }: CurrentProps) => {
               height={50}
               className="w-[50px] object-cover"
               src={weatherIcon}
-              alt="Weather Icon" />
+              alt="Weather Icon"
+              unoptimized
+            />
           </div>
         )}
       </div>
