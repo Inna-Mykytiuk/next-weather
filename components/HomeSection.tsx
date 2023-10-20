@@ -7,47 +7,42 @@ import { CurrentData } from './Current'
 import { WeatherDetails } from './WeatherDetails'
 import { WeekForecast } from './WeekForecast'
 
+
+
 const HomeSection = () => {
   const [data, setData] = useState({});
 
   const [location, setLocation] = useState("");
   const [error, setError] = useState("");
 
+
   const url = `https://api.weatherapi.com/v1/forecast.json?key=1afb03c498bb474489c193714230102&q=${location}&days=3&aqi=yes&alerts=yes`;
 
-  const handleSearch = async (e: React.KeyboardEvent<HTMLInputElement>) => {
-    if (e.key === "Enter") {
-      e.preventDefault();
-      try {
-        const response = await fetch(url);
-        if (!response.ok) {
-          throw new Error();
-        }
-        const data = await response.json();
-        setData(data);
-        setLocation("");
-        setError("");
-      } catch (error) {
-        setError("City not found");
+  const handleSubmit: React.FormEventHandler<HTMLFormElement> = async (event) => {
+    event.preventDefault();
+
+    try {
+      // Fetch data from the API using the location
+      const response = await fetch(url);
+      const result = await response.json();
+
+      // Check if the response contains an error
+      if (result.error) {
+        setError(result.error.message);
         setData({});
+      } else {
+        setError('');
+        setData(result);
       }
+    } catch (error) {
+      setError('An error occurred while fetching data');
+      setData({});
     }
   };
 
-  const handleClick = async () => {
-    try {
-      const response = await fetch(url);
-      if (!response.ok) {
-        throw new Error();
-      }
-      const data = await response.json();
-      setData(data);
-      setLocation("");
-      setError("");
-    } catch (error) {
-      setError("City not found");
-      setData({});
-    }
+  const handleChange: React.ChangeEventHandler<HTMLInputElement> = (e) => {
+    setLocation(e.currentTarget.value);
+
   };
 
   let content;
@@ -82,7 +77,10 @@ const HomeSection = () => {
 
     <section className='w-full flex flex-col justify-center items-center text-center'>
       <div className='px-8'>
-        <Form handleSearch={handleSearch} setLocation={setLocation} handleClick={handleClick} />
+        <Form
+          handleChange={handleChange}
+          handleSubmit={handleSubmit}
+        />
       </div>
       {content}
 
@@ -92,3 +90,5 @@ const HomeSection = () => {
 }
 
 export { HomeSection };
+
+
