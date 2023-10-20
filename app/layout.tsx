@@ -1,12 +1,9 @@
 import type { Metadata } from 'next'
-// import { Poppins } from 'next/font/google'
+import { Inter } from 'next/font/google'
 import './globals.css'
 
-// const poppins = Poppins({
-//   subsets: ['latin'],
-//   weight: ["400", "500", "700"],
-//   style: ["normal", "italic"]
-// })
+const inter = Inter({ subsets: ['latin'] })
+const video = '/hero.mp4'
 
 export const metadata: Metadata = {
   title: 'Create Next App',
@@ -20,9 +17,19 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className='text-[30px] font-poppins'>
-        {children}
-      </body>
+      <body className='relative w-full h-full overflow-auto md:overflow-hidden'
+        style={{ backgroundColor: 'rgb(8, 18, 10)' }}>
+        <div className='absolute top-0 left-0 w-full h-screen bg-black/60 z-10 ' />
+        <video
+          autoPlay
+          loop
+          muted
+          preload="auto"
+        // poster="./images/whale.jpg"
+        // className='absolute bg-black/60'
+        >
+          <source src={video} type="video/mp4" />
+        </video>{children}</body>
     </html>
   )
 }

@@ -1,5 +1,6 @@
-import { getCurrentDate } from "@/utils/currentDate";
+import { getCurrentDate } from '../utils/currentDate';
 import { IoLocationSharp } from 'react-icons/io5';
+import Image from 'next/image'
 
 interface CurrentProps {
   data: {
@@ -8,7 +9,7 @@ interface CurrentProps {
         icon: string;
         text: string;
       };
-      temp_f: number;
+      temp_c: number;
     };
     location?: {
       name: string;
@@ -21,11 +22,12 @@ const CurrentData = ({ data }: CurrentProps) => {
   const weatherIcon = data.current ? data.current.condition.icon : null;
   const currentDate = getCurrentDate();
   return (
-    <div className="flex flex-col mb-8 md:mb-0 items-start gap-2 bg-black/25 p-6 rounded-xl">
-      <div className="flex items-center">
-        <div className="">
+    <div className="flex flex-col gap-2 p-6 rounded-xl"
+      style={{ backgroundColor: 'rgb(147, 159, 77, 0.5)' }}>
+      <div className="flex items-center justify-between w-full">
+        <div className="flex flex-col justify-start items-center text-start">
           <h1 className="text-3xl text-white">Today</h1>
-          <p className="text-white">{currentDate}</p>
+          <p className="text-white flex flex-col justify-start items-center">{currentDate}</p>
         </div>
         {weatherIcon && (
           <div>
@@ -33,22 +35,24 @@ const CurrentData = ({ data }: CurrentProps) => {
           </div>
         )}
       </div>
-      <div>
+      <div className='text-center'>
         {data.current ? (
           <p className="text-5xl text-white">
-            {data.current.temp_f.toFixed()}
+            {data.current.temp_c.toFixed()}
             <span>°</span>
           </p>
         ) : null}
         {data.current ? <span className="text-white">{data.current.condition.text}</span> : null}
       </div>
-      <div>
+      <div className='text-center'>
         {data.location ? (
-          <div className="flex items-center text-black bg-white/90 px-2 py-2 rounded-xl">
-            <IoLocationSharp />
-            <span>
-              {data.location.name}, {data.location.region}
-            </span>
+          <div className="flex items-center justify-center text-black bg-white/90 px-2 py-2 rounded-xl">
+
+            <div className='flex flex-col items-center justify-center'>
+              <IoLocationSharp className="w-[30px] h-[30px]" />
+              <p>{data.location.name},</p>
+              <p>{data.location.region}</p>
+            </div>
           </div>
         ) : null}
       </div>

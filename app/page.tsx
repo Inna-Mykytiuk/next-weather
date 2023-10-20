@@ -1,27 +1,9 @@
-import Image from 'next/image'
-import { HomeSection } from '../component/HomeSection'
+import { HomeSection } from "@/components/HomeSection"
 
 export default function Home() {
   return (
-    <>
+    <main className="absolute w-full flex flex-col justify-center items-center  text-white z-30 top-[50px] md:top-[120px]">
       <HomeSection />
-      {/* <div className='relative flex justify-between items-center max-w-[500px]  mt-[100px] pt-4 px-4 text-white z-10'>
-        <form
-          // onSubmit={fetchWeather}
-          className='flex justify-between items-center w-full m-auto p-3 bg-transparent border border-gray-300 text-white rounded-2xl'
-        >
-          <div>
-            <input
-              // onChange={(e) => setCity(e.target.value)}
-              className='bg-transparent border-none text-white focus:outline-none text-2xl'
-              type='text'
-              placeholder='Search city'
-            />
-          </div>
-
-        </form>
-      </div> */}
-    </>
+    </main>
   )
 }
-
