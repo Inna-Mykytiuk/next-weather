@@ -28,7 +28,6 @@ const CurrentData = ({ data }: CurrentProps) => {
         backgroundColor: 'rgba(90, 72, 72, 0.3)',
         boxShadow: 'rgba(0, 0, 0, 0.5) 0px 5px 15px',
       }}
-    // style={{ backgroundColor: 'rgb(147, 159, 77, 0.5)' }}
     >
       <div className="flex items-center justify-between w-full">
         <div className="flex flex-col justify-start items-center text-start">
