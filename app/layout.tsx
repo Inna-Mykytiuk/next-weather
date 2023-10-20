@@ -4,6 +4,7 @@ import './globals.css'
 
 const inter = Inter({ subsets: ['latin'] })
 const video = '/hero.mp4'
+const videoWeb = '/hero.webm'
 
 export const metadata: Metadata = {
   title: 'Create Next App',
@@ -25,10 +26,11 @@ export default function RootLayout({
           loop
           muted
           preload="auto"
-        // poster="./images/whale.jpg"
+          poster="../public/assets/hero.jpg"
         // className='absolute bg-black/60'
         >
           <source src={video} type="video/mp4" />
+          <source src={videoWeb} type="videoWeb/webm" />
         </video>{children}</body>
     </html>
   )
