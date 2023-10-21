@@ -49,7 +49,7 @@ const HomeSection = () => {
   let content;
   if (Object.keys(data).length === 0 && error === "") {
     content = (
-      <motion.div className="text-white/75 text-center mt-[5rem] px-8 w-full flex justify-center flex-col items-center"
+      <motion.div className="text-white/75 text-center mt-[5rem] px-8 w-full flex justify-center flex-col items-center mb-20"
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, amount: 0.5 }}
