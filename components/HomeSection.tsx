@@ -6,6 +6,7 @@ import { useState } from 'react'
 import { CurrentData } from './Current'
 import { WeatherDetails } from './WeatherDetails'
 import { WeekForecast } from './WeekForecast'
+import { motion } from "framer-motion"
 
 
 
@@ -48,10 +49,19 @@ const HomeSection = () => {
   let content;
   if (Object.keys(data).length === 0 && error === "") {
     content = (
-      <div className="text-white/75 text-center mt-[5rem] px-8 w-full flex justify-center flex-col items-center">
+      <motion.div className="text-white/75 text-center mt-[5rem] px-8 w-full flex justify-center flex-col items-center"
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.5 }}
+        transition={{ duration: 0.8 }}
+        variants={{
+          hidden: { opacity: 0, y: 100 },
+          visible: { opacity: 1, y: 0 },
+        }}
+      >
         <h2 className="text-[45px] sm:text-[80px] font-bold max-w-[600px] font-josefin">Welcome to the Weather App</h2>
         <p className="text-lg sm:text-xl font-normal max-w-[600px] font-josefin"> Immerse yourself in the atmospheric tales that shape your day. From the gentle whispers of a sunny morning to the dramatic crescendos of stormy afternoons, ElementalForecast brings you a personalized journey through the elements. Step into a world where weather isn&apos;t just a forecast; it&apos;s an epic narrative waiting to unfold. Let the elements guide you on your daily adventures.</p>
-      </div>
+      </motion.div>
 
     );
   } else if (error !== "") {
