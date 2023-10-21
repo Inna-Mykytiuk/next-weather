@@ -19,7 +19,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className='relative w-full h-full overflow-auto md:overflow-hidden'
+      <body className='relative w-full h-full overflow-auto'
         style={{ backgroundColor: 'rgb(8, 18, 10)' }}>
         <div className='absolute top-0 left-0 w-full h-screen bg-black/60 z-10 ' />
         <video
