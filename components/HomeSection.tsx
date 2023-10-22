@@ -49,7 +49,7 @@ const HomeSection = () => {
   let content;
   if (Object.keys(data).length === 0 && error === "") {
     content = (
-      <motion.div className="text-white/75 text-center mt-[5rem] px-8 w-full flex justify-center flex-col items-center mb-20"
+      <motion.div className="text-white/75 text-center mt-[2rem] px-8 w-full flex justify-center flex-col items-center mb-20"
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, amount: 0.5 }}
@@ -59,7 +59,9 @@ const HomeSection = () => {
           visible: { opacity: 1, y: 0 },
         }}
       >
-        <h2 className="text-[45px] sm:text-[80px] font-bold max-w-[600px] font-josefin">Welcome to the Weather App</h2>
+        <h2 className="text-[45px] sm:text-[80px] font-bold max-w-[600px] font-josefin"
+
+        >Welcome to the Weather App</h2>
         <p className="text-lg sm:text-xl font-normal max-w-[600px] font-josefin"> Immerse yourself in the atmospheric tales that shape your day. From the gentle whispers of a sunny morning to the dramatic crescendos of stormy afternoons, ElementalForecast brings you a personalized journey through the elements. Step into a world where weather isn&apos;t just a forecast; it&apos;s an epic narrative waiting to unfold. Let the elements guide you on your daily adventures.</p>
       </motion.div>
 
